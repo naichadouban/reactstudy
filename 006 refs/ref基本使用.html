@@ -1,0 +1,59 @@
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<div id="test01"></div>
+<div id="test02"></div>
+
+
+<script type="text/javascript" src="../js/react.development.js"></script>
+<script type="text/javascript" src="../js/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script type="text/babel">
+    // 创建组件
+    class Mycomponent extends React.Component{
+      constructor(props){
+        super(props)
+        this.showContent = this.showContent.bind(this)
+        this.showContent2 = this.showContent2.bind(this)
+
+      }
+      // 按钮点击事件
+      showContent(){
+        // 获取到第一个input元素，虚拟dom不能用传统的js了，那就只能用refs
+        let input = this.refs.content
+        alert(input.value)
+      }
+      showContent2(){
+        alert(this.input.value)
+      }
+      // 第二个输入框焦点消除事件
+      handleBlur(event){
+        let input = event.target
+        alert(input.value)
+      }
+      render(){
+        return (
+          <div>
+              <input type="text" ref="content" />
+              <button onClick={this.showContent}>提示内容</button>
+              <input type="text" ref={input => this.input=input}/>
+
+              <button onClick={this.showContent2}>提示内容2</button>
+              <input type="text" onBlur={this.handleBlur}/>
+          </div>
+        )
+      }
+
+    }
+    // 渲染组件
+    ReactDOM.render(<Mycomponent/>,document.getElementById("test01"))
+    //<input type="text" ref={input => this.input=input}/>
+    // 中 input => this.input=input
+    // 是个箭头函数，第一个input表示 <input />元素，
+    // this.input表示组件的input属性，第三个input表示参数传入的input，也就是第一个
+</script>
+
+</body>
+</html>

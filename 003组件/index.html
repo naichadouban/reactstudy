@@ -1,0 +1,32 @@
+<html>
+<head>
+
+</head>
+<body>
+<div id="test01"></div>
+<div id="test02"></div>
+
+
+<script type="text/javascript" src="../js/react.development.js"></script>
+<script type="text/javascript" src="../js/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script type="text/babel">
+    // 创建组件
+    // 方法一：简单函数创建
+    function Mycomponent() {
+      return <h2>方法一：简单函数创建</h2>
+    }
+    // 方法二：es6 类式创建
+    class Mycomponent2 extends React.Component{
+      render (){
+        return <h2>方法二：es6 类式创建</h2>
+      }
+    }
+    // 渲染
+    ReactDOM.render(<Mycomponent/>,document.getElementById("test01"))
+    ReactDOM.render(<Mycomponent2/>,document.getElementById("test02"))
+
+</script>
+
+</body>
+</html>

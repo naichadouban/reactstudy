@@ -1,0 +1,28 @@
+<html>
+<head>
+
+</head>
+<body>
+<div id="root"></div>
+<div id="test01"></div>
+
+
+<script type="text/javascript" src="../js/react.development.js"></script>
+<script type="text/javascript" src="../js/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script type="text/babel">
+    let names = ["golang","javascript","php","rust"];
+    // 准备虚拟dom
+    let uldom = (
+      <ul>
+        {
+          names.map((name,index)=> <li key={index}>{name}</li>)
+        }
+      </ul>
+    );
+    // 渲染dom
+    ReactDOM.render(uldom,document.getElementById("root"))
+</script>
+
+</body>
+</html>

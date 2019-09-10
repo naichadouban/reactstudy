@@ -1,0 +1,32 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <div id="root"></div>
+        <div id="test01"></div>
+
+
+        <script type="text/javascript" src="../js/react.development.js"></script>
+        <script type="text/javascript" src="../js/react-dom.development.js"></script>
+<!--        <script type="text/javascript" src="../js/babel.min.js"></script>-->
+        <script type="text/javascript">
+            let vdom = React.createElement("h2",{id:"hello"},"hello react");
+
+            debugger;
+            ReactDOM.render(
+              vdom,
+              document.getElementById('root')
+            );
+        </script>
+        <script type="text/babel">
+            const vdom1 = <h2>i like you </h2>;
+            debugger;
+            ReactDOM.render(
+                vdom1,
+                document.getElementById("test01")
+            )
+        </script>
+
+    </body>
+</html>

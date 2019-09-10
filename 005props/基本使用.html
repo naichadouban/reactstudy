@@ -1,0 +1,42 @@
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<div id="test01"></div>
+<div id="test02"></div>
+
+
+<script type="text/javascript" src="../js/react.development.js"></script>
+<script type="text/javascript" src="../js/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script type="text/babel">
+  // 创建person组件，因为不需要state，我们就用函数式创建了
+  function Person(props){
+    return (
+      <ul>
+          <li>姓名：{props.name}</li>
+          <li>年龄：{props.age}</li>
+          <li>性别：{props.sex}</li>
+      </ul>
+    )
+  }
+  // 准备数据
+  let p1 = {
+    name:"xuxiaofeng",
+    age:28,
+    sex:"男"
+  };
+  let p2 = {
+    name: "吴大凯",
+    age: 19,
+    sex: "男"
+  };
+  // 渲染
+  ReactDOM.render(<Person name={p1.name} age={p1.age} sex={p1.sex}/>,document.getElementById("test01"))
+  ReactDOM.render(<Person name={p2.name} age={p2.age} sex={p2.sex}/>,document.getElementById("test02"))
+
+</script>
+
+</body>
+</html>
